@@ -36,9 +36,10 @@ final_results = {}
 # search every medicine name as keyword
 for name in med_names:
     driver.get("http://sideeffects.embl.de/")
-    # assert "Python" in driver.title
+    # locate to the search box
     elem = driver.find_element_by_name("q")
     elem.clear()
+    # put the medicine name in the search box
     elem.send_keys(name)
     elem.send_keys(Keys.RETURN)
     driver.implicitly_wait(10)  # wait until the site is fully rendered
